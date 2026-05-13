@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Резюме — Иванов Иван Иванович</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(135deg, #eef4ff 0%, #f8fafc 45%, #f1f5f9 100%);
+      color: #1f2937;
+      line-height: 1.65;
+      padding: 40px 18px;
+    }
+
+    .resume {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 56px;
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 28px 80px rgba(15, 23, 42, 0.12);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -150px;
+      top: -150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.25), transparent 68%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      left: -120px;
+      bottom: -120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14, 165, 233, 0.18), transparent 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.1);
+      color: #1d4ed8;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin-bottom: 18px;
+      font-size: clamp(42px, 7vw, 78px);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      background: linear-gradient(90deg, #0f172a, #1d4ed8, #0891b2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .position {
+      max-width: 920px;
+      font-size: 22px;
+      color: #334155;
+      margin-bottom: 28px;
+    }
+
+    .position strong {
+      color: #1d4ed8;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .contact-item {
+      padding: 18px;
+      border-radius: 20px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+    }
+
+    .contact-item span {
+      display: block;
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .contact-item b,
+    .contact-item a {
+      color: #0f172a;
+      font-size: 16px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .section {
+      margin-top: 30px;
+      padding: 34px;
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 20px 55px rgba(15, 23, 42, 0.07);
+    }
+
+    .section-title {
+      position: relative;
+      margin-bottom: 22px;
+      padding-left: 18px;
+      font-size: 30px;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+    }
+
+    .section-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 30px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #2563eb, #06b6d4);
+    }
+
+    .goal-box {
+      padding: 28px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: #ffffff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .goal-box::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -70px;
+      bottom: -90px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .goal-box h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .goal-box p {
+      max-width: 920px;
+      color: #e0f2fe;
+      font-size: 17px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .skill-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(37, 99, 235, 0.45);
+      box-shadow: 0 24px 54px rgba(37, 99, 235, 0.16);
+    }
+
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 14px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #dbeafe, #cffafe);
+      font-size: 24px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 8px;
+      color: #0f172a;
+      font-size: 19px;
+    }
+
+    .skill-card p {
+      color: #475569;
+      font-size: 15px;
+    }
+
+    .education-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 22px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .education-table th,
+    .education-table td {
+      padding: 16px;
+      border-bottom: 1px solid #e2e8f0;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .education-table th {
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 22px;
+      margin-top: 10px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 26px;
+      border-radius: 26px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, 0.07);
+      transition: 0.35s ease;
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 48px rgba(15, 23, 42, 0.12);
+    }
+
+    .date {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .timeline-item h3 {
+      font-size: 22px;
+      color: #0f172a;
+      margin-bottom: 5px;
+    }
+
+    .company {
+      color: #475569;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .profile {
+      padding: 14px 16px;
+      margin: 14px 0;
+      border-left: 5px solid #2563eb;
+      border-radius: 14px;
+      background: #f8fafc;
+      color: #334155;
+    }
+
+    .timeline-item ul {
+      margin-top: 14px;
+      padding-left: 20px;
+    }
+
+    .timeline-item li {
+      margin-bottom: 8px;
+      color: #374151;
+    }
+
+    .case-block {
+      margin-top: 22px;
+      padding: 26px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.95), rgba(37, 99, 235, 0.95));
+      color: #ffffff;
+    }
+
+    .case-block h3 {
+      margin-bottom: 12px;
+      font-size: 23px;
+    }
+
+    .case-block p {
+      color: #e0f2fe;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      font-size: 14px;
+      font-weight: 800;
+      transition: 0.3s ease;
+    }
+
+    .tag:hover {
+      transform: translateY(-3px);
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .detail-card {
+      padding: 22px;
+      border-radius: 22px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+    }
+
+    .detail-card span {
+      display: block;
+      margin-bottom: 6px;
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .detail-card b {
+      color: #0f172a;
+      font-size: 17px;
+    }
+
+    @media (max-width: 960px) {
+      .contact-grid,
+      .skills-grid,
+      .details-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero {
+        padding: 40px 28px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      body {
+        padding: 22px 12px;
+      }
+
+      .hero,
+      .section {
+        padding: 28px 20px;
+        border-radius: 24px;
+      }
+
+      .contact-grid,
+      .skills-grid,
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .position {
+        font-size: 18px;
+      }
+
+      .education-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+
+      .section-title {
+        font-size: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="resume">
+
+    <section class="hero">
+      <div class="hero-content">
+        <span class="eyebrow">Резюме руководителя</span>
+        <h1>Иванов Иван Иванович</h1>
+
+        <p class="position">
+          <strong>Целевая позиция:</strong> генеральный директор, технический директор,
+          заместитель директора по производству.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <span>Дата рождения</span>
+            <b>10.10.1999</b>
+          </div>
+
+          <div class="contact-item">
+            <span>Семейное положение</span>
+            <b>Женат</b>
+          </div>
+
+          <div class="contact-item">
+            <span>Адрес</span>
+            <b>г. Москва, Литейный переулок, 7</b>
+          </div>
+
+          <div class="contact-item">
+            <span>Телефон</span>
+            <a href="tel:+79270000002">+7 927 000 002</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Профессиональная цель</h2>
+
+      <div class="goal-box">
+        <h3>Руководство, производство, развитие бизнеса</h3>
+        <p>
+          Получение должности генерального директора, технического директора
+          или заместителя директора по производству. Ключевой фокус — общее
+          руководство организацией, анализ финансово-хозяйственной деятельности,
+          расширение сферы деятельности предприятия, организация производственного
+          процесса и контроль работы подразделений.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">🏢</div>
+          <h3>Общее управление</h3>
+          <p>Руководство предприятием, подразделениями, представительствами и филиалами.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">📊</div>
+          <h3>Финансовое планирование</h3>
+          <p>Формирование БДДС, БДР, контроль бюджета, смет и затрат.</p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">⚙️</div>
+          <h3>Производственный контроль</h3>
+          <p>Организация производственного процесса и контроль работы подразделений.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Образование</h2>
+
+      <table class="education-table">
+        <thead>
+          <tr>
+            <th>Период</th>
+            <th>Учебное учреждение</th>
+            <th>Факультет / кафедра</th>
+            <th>Квалификация</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1990–1995</td>
+            <td>Самарский Государственный Технический университет</td>
+            <td>Нефтяной / Бурение нефтяных и газовых месторождений</td>
+            <td>Горный инженер</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Ключевые компетенции</h2>
+
+      <div class="tags">
+        <span class="tag">Общее руководство</span>
+        <span class="tag">Производственный процесс</span>
+        <span class="tag">Анализ ФХД</span>
+        <span class="tag">БДДС</span>
+        <span class="tag">БДР</span>
+        <span class="tag">Контроль затрат</span>
+        <span class="tag">Дебиторская задолженность</span>
+        <span class="tag">Переговоры</span>
+        <span class="tag">Тендерная документация</span>
+        <span class="tag">ПНП</span>
+        <span class="tag">Нефтегазовая отрасль</span>
+        <span class="tag">Управление командами</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Опыт работы</h2>
+
+      <div class="timeline">
+
+        <article class="timeline-item">
+          <span class="date">2013–2019</span>
+          <h3>Предприниматель</h3>
+          <p class="company">Строительство и торговля</p>
+          <div class="profile">
+            Самостоятельная предпринимательская деятельность в области строительства и торговли.
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <span class="date">13.02.2013 – 01.07.2009</span>
+          <h3>Генеральный директор</h3>
+          <p class="company">ООО «ССС», г. Самара</p>
+          <div class="profile">
+            Профиль организации: повышение нефтеотдачи пластов при бурении,
+            освоении, капитальном и текущем ремонтах скважин.
+          </div>
+          <ul>
+            <li>Создание организации с «0».</li>
+            <li>Подготовка тендерной документации и успешное участие в тендерах.</li>
+            <li>Общее руководство предприятием и филиалами.</li>
+            <li>Формирование БДДС и БДР, контроль бюджета и сметы затрат.</li>
+            <li>Контроль дебиторской задолженности.</li>
+            <li>Проведение мер по оптимизации затрат предприятия.</li>
+            <li>Поиск заказчиков и заключение договоров на производство работ по ПНП.</li>
+            <li>Работа с заказчиками, анализ ФХД предприятия.</li>
+            <li>Участие в переговорах и научно-технических совещаниях.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <span class="date">10.08.2009 – 21.07.2009</span>
+          <h3>Глава Представительства</h3>
+          <p class="company">ООО «ВБС», г. Самара</p>
+          <div class="profile">
+            Профиль организации: долотный сервис, прокат и ремонт гидравлических
+            забойных двигателей, повышение нефтеотдачи пластов.
+          </div>
+          <ul>
+            <li>Общее руководство Представительством.</li>
+            <li>Формирование БДДС и БДР, контроль сметы затрат.</li>
+            <li>Работа с потенциальными заказчиками.</li>
+            <li>Участие в переговорах.</li>
+            <li>Оптимизация затрат Представительства.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <span class="date">20.07.2009 – 05.08.2008</span>
+          <h3>Начальник Управления ПНП</h3>
+          <p class="company">ООО «ВБМ-Сервис», г. Самара</p>
+          <div class="profile">
+            Профиль организации: долотный сервис, прокат и ремонт гидравлических
+            забойных двигателей, повышение нефтеотдачи пластов.
+          </div>
+          <ul>
+            <li>Общее руководство Управлением.</li>
+            <li>Формирование БДДС и БДР, контроль сметы затрат.</li>
+            <li>Работа с потенциальными заказчиками.</li>
+            <li>Участие в переговорах.</li>
+            <li>Оптимизация затрат Управления.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <span class="date">05.08.2008 – 15.10.2007</span>
+          <h3>Заместитель Главы Представительства по УПР</h3>
+          <p class="company">ООО «ВБМ-Сервис», г. Самара</p>
+          <div class="profile">
+            Профиль организации: долотный сервис, прокат и ремонт гидравлических
+            забойных двигателей, повышение нефтеотдачи пластов.
+          </div>
+          <ul>
+            <li>Составление актов сдачи и реестров на выполненные объемы.</li>
+            <li>Работа с потенциальными заказчиками.</li>
+            <li>Проведение мер по оптимизации затрат Представительства.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <span class="date">21.09.2007 – 02.12.2002</span>
+          <h3>Заместитель начальника Центральной инженерно-технологической службы</h3>
+          <p class="company">ОАО «ЛУКОЙЛ-Западная Сибирь», ТПП «Когалымнефтегаз», г. Когалым</p>
+          <div class="profile">
+            Профиль организации: добыча и переработка сырой нефти и газа.
+          </div>
+          <ul>
+            <li>Выполнение мероприятий по обеспечению уровня добычи нефти и газа.</li>
+            <li>Составление и контроль выполнения геолого-технических мероприятий.</li>
+            <li>Анализ работы механизированного фонда скважин.</li>
+            <li>Контроль работы структурных подразделений.</li>
+            <li>Оперативное руководство цехами добычи нефти и газа.</li>
+            <li>Оперативное руководство бригадами капитального и подземного ремонта скважин.</li>
+            <li>Проведение и участие в производственно-технических совещаниях.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <span class="date">02.12.2002 – 01.06.1999</span>
+          <h3>Ведущий инженер-технолог Цеха добычи нефти и газа</h3>
+          <p class="company">ТПП «Когалымнефтегаз», НГДУ «Ватьёганнефть»</p>
+          <div class="profile">
+            Профиль организации: добыча и переработка сырой нефти и газа.
+          </div>
+          <ul>
+            <li>Выполнение мероприятий по обеспечению уровня добычи нефти и газа ЦДНГ.</li>
+            <li>Составление и контроль выполнения геолого-технических мероприятий.</li>
+            <li>Анализ работы механизированного фонда скважин.</li>
+            <li>Контроль работы бригад капитального и подземного ремонта скважин.</li>
+            <li>Проведение и участие в производственно-технических совещаниях.</li>
+          </ul>
+        </article>
+
+        <article class="timeline-item">
+          <span class="date">01.06.1999 – 06.08.1994</span>
+          <h3>Специалист в области бурения, добычи нефти и газа</h3>
+          <p class="company">Нефтегазовая отрасль</p>
+          <div class="profile">
+            Специализация: бурение нефтяных и газовых месторождений, добыча нефти и газа,
+            капитальный и текущий ремонт скважин.
+          </div>
+        </article>
+
+      </div>
+
+      <div class="case-block">
+        <h3>Пример управленческого кейса</h3>
+        <p>
+          Создание организации с нуля, участие в тендерах, управление филиалами,
+          формирование финансовых бюджетов, контроль затрат, развитие клиентской базы
+          и организация производственных процессов в нефтегазовом сервисе.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Дополнительные сведения</h2>
+
+      <div class="details-grid">
+        <div class="detail-card">
+          <span>Знание ПК</span>
+          <b>Уверенный пользователь Microsoft Word, Excel</b>
+        </div>
+
+        <div class="detail-card">
+          <span>Водительские права</span>
+          <b>Категория B</b>
+        </div>
+
+        <div class="detail-card">
+          <span>Наличие автомобиля</span>
+          <b>Есть</b>
+        </div>
+
+        <div class="detail-card">
+          <span>Командировки</span>
+          <b>Готовность к командировкам</b>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <h3>Личные качества</h3>
+        <p>
+          Высокая работоспособность, стрессоустойчивость, инициативность,
+          коммуникабельность, пунктуальность, стремление к профессиональному росту,
+          логическое мышление, выраженные лидерские качества, умение работать в команде,
+          быстрое принятие решений, гарантия хранения конфиденциальной информации.
+        </p>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
